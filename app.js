@@ -7,7 +7,8 @@ const bodyparser = require("body-parser")
 const http = require("http")
 const hostname = "127.0.0.1"
 const port = 8080
-const url = "mongodb://127.0.0.1:27017/Maqraaty"
+// const url = "mongodb://127.0.0.1:27017/Maqraaty"
+const url = "mongodb+srv://AhmedKh:mongo@cluster0.xrny0xe.mongodb.net/Maqraaty"
 const connectLivereload = require("connect-livereload")
 const fs = require("fs")
 const multer = require("multer")
@@ -17,7 +18,7 @@ const bluebird = require("bluebird")
 const bfs = bluebird.promisifyAll(require("fs"))
 var connect = require("connect")
 const mongoClient = require('mongodb').MongoClient
-const client = new mongoClient(url);
+// const client = new mongoClient(url);
 const studentSchema = require('./models/studentsModel')
 const app = express()
 const studentRoutes = require('./routes/studentsWithMongoose')
@@ -56,14 +57,8 @@ server.listen(8080, () => {
     // clientdb.disconnect()
 
   })
-
-
-//   client.connect().then((client_db) => {
-//     console.log("connect to database");
-//     let db = client_db?.db()
-   
-// })
 })
+
 const liveReloadServer = livereload.createServer()
 liveReloadServer.watch(path.join(__dirname, "static"))
 

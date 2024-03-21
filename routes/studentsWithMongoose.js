@@ -29,7 +29,7 @@ const Student = mongoose.model("student", StudentSchema);
 function generateSixDigits() {
   return Math.floor(100000 + Math.random() * 900000);
 }
-mongoose.connect(url, { useBigInt64: false }).then((clientdb) => {
+// mongoose.connect(url, { useBigInt64: false }).then((clientdb) => {
   // console.log(clientdb);
   //Read students data
   router.get("/students", async (req, res) => {
@@ -726,6 +726,6 @@ mongoose.connect(url, { useBigInt64: false }).then((clientdb) => {
         res.status(500).json({ message: e.message });
       });
   });
-});
+// });
 
 module.exports = router;
